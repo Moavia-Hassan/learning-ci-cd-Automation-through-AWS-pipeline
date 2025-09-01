@@ -29,5 +29,5 @@ jobs:
           # The -o StrictHostKeyChecking=no flag is used for CI/CD environments to prevent prompts.
           # The first command removes old files from the web directory.
           # The second command copies the new files.
-          ssh -o StrictHostKeyChecking=no ec2-user@<YOUR-EC2-PUBLIC-IP> 'sudo rm -rf /var/www/html/*'
+          ssh -o StrictHostKeyChecking=no ec2-user@35.175.110.41 'sudo rm -rf /var/www/html/*'
           scp -r ./* ec2-user@35.175.110.41:/var/www/html/
