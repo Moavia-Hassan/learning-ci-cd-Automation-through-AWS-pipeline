@@ -27,7 +27,7 @@ jobs:
         run: |
           echo "Deploying files to EC2 instance..."
           # The first command copies files to a temporary location in the ec2-user's home directory.
-          scp -r ./* ec2-user@35.175.110.41:/home/ec2-user/temp_deploy/
+          scp -o StrictHostKeyChecking=no -r ./* ec2-user@35.175.110.41:/home/ec2-user/temp_deploy/
 
           # The second command connects via SSH and moves the files from the temporary location to the web directory using sudo.
           ssh -o StrictHostKeyChecking=no ec2-user@35.175.110.41 'sudo rm -rf /var/www/html/* && sudo mv /home/ec2-user/temp_deploy/* /var/www/html/'
