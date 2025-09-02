@@ -1,28 +1,20 @@
-# This is a basic GitHub Actions workflow to automatically deploy to an EC2 instance.
 name: Deploy to EC2
-
-# This triggers the workflow on a push to the main branch.
 on:
   push:
     branches:
       - main
-
-# A workflow is made up of one or more jobs.
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out the repository.
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Set up the SSH agent using the private key from GitHub Secrets.
       - name: Set up SSH agent
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # Step 3: Deploy the website files to the EC2 instance via SSH.
       - name: Deploy via SSH
         run: |
           echo "Deploying files to EC2 instance..."
@@ -31,3 +23,6 @@ jobs:
 
           # The second command connects via SSH and moves the files from the temporary location to the web directory using sudo.
           ssh -o StrictHostKeyChecking=no ec2-user@44.199.204.177 'sudo rm -rf /var/www/html/* && sudo mv /home/ec2-user/temp_deploy/* /var/www/html/'
+
+          # New command: Create an .htaccess file to tell Apache to serve your file
+          ssh -o StrictHostKeyChecking=no ec2-user@44.199.204.177 'echo "DirectoryIndex ci_cd_pipeline.html" | sudo tee /var/www/html/.htaccess'
