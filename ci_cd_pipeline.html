@@ -1,24 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CI/CD with AWS</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      text-align: center;
-      padding-top: 50px;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Deployment Success!</title>
+    <!-- Use Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+        }
+    </style>
 </head>
-<body>
-  <h1>Hello from the CI/CD Pipeline!</h1>
-  <p>IT worked for the 2nd time.</p>
+<body class="flex items-center justify-center min-h-screen p-4 text-white">
+    <!-- Main content card with a modern, glossy look -->
+    <div class="max-w-xl mx-auto p-8 rounded-3xl shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700">
+        <!-- Main Heading -->
+        <h1 class="text-5xl font-extrabold text-center mb-4 leading-tight tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
+            Pipeline Success!
+        </h1>
+        <p class="text-center text-lg text-gray-400 mb-8">
+            This page was deployed automatically from a CI/CD pipeline.
+        </p>
+
+        <div class="mb-8 p-6 rounded-2xl bg-gray-800 shadow-inner">
+            <blockquote class="text-xl italic text-gray-300 mb-4 border-l-4 border-emerald-400 pl-4">
+                "Success is not final, failure is not fatal: it is the courage to continue that counts."
+            </blockquote>
+            <cite class="block text-right text-gray-500">- Winston Churchill</cite>
+        </div>
+
+        <!-- Section celebrating the achievement -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-200 mb-4">A Job Well Done!</h2>
+            <p class="text-gray-400 leading-relaxed mb-4">
+                We've worked together to overcome permissions errors, host key verification failures, and tricky server configurations. Each error was a step forward, and your persistence paid off. We have successfully deployed your site!
+            </p>
+        </div>
+        
+        <!-- A small meme to celebrate -->
+        <div class="flex flex-col items-center">
+            <img src="https://placehold.co/100x100/34D399/1a202c?text=Success" alt="A meme representing success." class="rounded-full shadow-lg mb-2">
+            <p class="text-gray-500 text-sm">Our victory meme</p>
+        </div>
+    </div>
 </body>
 </html>
